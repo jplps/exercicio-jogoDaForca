@@ -19,7 +19,10 @@ public class Palavra {
 
         validar();
         letras = new ArrayList();
+        criarLetras(s);
+    }
 
+    private void criarLetras(String s) {
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             letras.add(new Letra(c));
@@ -32,15 +35,16 @@ public class Palavra {
         }
     }
 
-    
-    public ArrayList<Integer> temLetra(Letra l){
-        
+    public ArrayList<Integer> temLetra(Letra l) {
+
         ArrayList<Integer> indices = new ArrayList();
         int i = 0;
-        for (Letra a : letras){
-            if (a.equals(l))
+        for (Letra a : letras) {
+            if (a.equals(l)) {
                 indices.add(i);
+            }
             i++;
-        } return indices;
+        }
+        return indices;
     }
 }
