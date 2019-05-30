@@ -6,3 +6,4 @@ Projeto feito em conjunto na sala de aula para construção do modelo, interface
 Alexandre de Limas Santana
 
 # Alunos
+João Pedro Pacheco
