@@ -7,3 +7,4 @@ Alexandre de Limas Santana
 
 # Alunos
 João Pedro Pacheco
+Marcelo Regis
