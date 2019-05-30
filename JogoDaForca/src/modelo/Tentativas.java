@@ -6,7 +6,6 @@ package modelo;
  * @author aluno
  */
 public class Tentativas {
-    
     public static final int maximo = 6;
     private int atual;
     
@@ -19,13 +18,11 @@ public class Tentativas {
     }
     
     public void errou(){
-        if(atual > 0){
+        if(atual > 0)
             atual--;       
-        }
     }
     
     public boolean acabou(){
         return atual == 0;
     }
-    
 }
