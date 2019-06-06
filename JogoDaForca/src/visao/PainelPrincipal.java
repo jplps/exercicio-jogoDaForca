@@ -5,6 +5,7 @@
  */
 package visao;
 
+import controle.CriadorJogadas;
 import javax.swing.JPanel;
 import modelo.Partida;
 
@@ -14,21 +15,23 @@ import modelo.Partida;
  */
 public class PainelPrincipal extends JPanel {
     
-    private JPanel pLetra;
-    private JPanel pPartida;
+    private PainelLetra pLetra;
+    private PainelPartida pPartida;
     private JPanel pSegredo;
     private JPanel pUsadas;
     
-    public PainelPrincipal() {
-        iniciarPaineis();
+    public PainelPrincipal(CriadorJogadas cj) {
+        iniciarPaineis(cj);
         adicionarPaineis();
     }
 
-    private void iniciarPaineis() {
-        pLetra = new JPanel();
-        pPartida = new JPanel();
+    private void iniciarPaineis(CriadorJogadas cj) {
+        pLetra = new PainelLetra();
+        pPartida = new PainelPartida();
         pSegredo = new JPanel();
         pUsadas = new JPanel();
+        
+        pLetra.novaPartida(cj);
     }
 
     private void adicionarPaineis() {
