@@ -41,6 +41,17 @@ public class Segredo {
         revelarEspacos(indices);
         return !indices.isEmpty();
     }
+   
+    /**
+     * Verifica se o jogo já terminou.
+     * @return False se pelo menos um dos espaços aindo não foi revelado.
+     */
+    public boolean vitoria(){
+        for(Espaco e : espacos)
+            if(!e.revelado())
+                return false;
+        return true;
+    }
 
     /**
      * Cria um espaço para cada caracter da palavra e os adiciona na lista de espaços do segredo
