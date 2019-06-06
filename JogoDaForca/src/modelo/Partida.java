@@ -42,12 +42,8 @@ public class Partida {
     }
 
     /**
-     * Registra a letra no contexto de letras usadas e revela os espaços do
-     * segredo.
-     *
-     * @throws IllegalArgumentException se o Segredo for nulo.
-     * @param s Um segredo para aplicar a jogada.
-     * @return true caso algum espaço foi revelado.
+     * Verifica o estado da partida, e, se inacabada, efetua jogada de fato.
+     * @param c 
      */
     public void jogar(char c) {
         if (estado() != INACABADO) {
