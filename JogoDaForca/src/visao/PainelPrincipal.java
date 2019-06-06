@@ -41,6 +41,7 @@ public class PainelPrincipal extends JPanel {
     }
 
     void mostrarPartida(Partida partidaAtual) {
-        // ...
+        partidaAtual.letrasusadas.registrarObservador(pUsadas);
+        
     }
 }

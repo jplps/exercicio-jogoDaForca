@@ -2,6 +2,7 @@
 package modelo;
 
 import java.util.ArrayList;
+import modelo.interfaces.ObservadorLetrasUsadas;
 
 /**
  * Representa todas as letras já usadas em uma partida de jogo da forca.
@@ -9,6 +10,7 @@ import java.util.ArrayList;
  */
 public class LetrasUsadas {
     private final ArrayList<Letra> lista;
+    private ObservadorLetrasUsadas observador;
     
     /**
      * Cria um novo objeto para guardar as letras já usadas.
@@ -33,7 +35,14 @@ public class LetrasUsadas {
      * @param l A letra que será registrada.
      */
     public void registrarLetra(Letra l){
-        if(!usada(l))
+        if(!usada(l)){
             lista.add(l);
+            if(observador != null)
+                observador.novaLetra(l);
+        }
+    }
+    
+    public void registrarObservador(ObservadorLetrasUsadas obs){
+        observador = obs;
     }
 }

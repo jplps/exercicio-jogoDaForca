@@ -38,7 +38,11 @@ public class Letra {
         }
         return false;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        String s = "" + caracter;
+        return s;
+    }
     
 }
