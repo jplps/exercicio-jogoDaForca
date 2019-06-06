@@ -17,7 +17,7 @@ public class PainelPrincipal extends JPanel {
     private JPanel pLetra;
     private JPanel pPartida;
     private JPanel pSegredo;
-    private JPanel pUsadas;
+    private PainelUsadas pUsadas;
     
     public PainelPrincipal() {
         iniciarPaineis();
@@ -28,7 +28,7 @@ public class PainelPrincipal extends JPanel {
         pLetra = new JPanel();
         pPartida = new JPanel();
         pSegredo = new JPanel();
-        pUsadas = new JPanel();
+        pUsadas = new PainelUsadas();
     }
 
     private void adicionarPaineis() {

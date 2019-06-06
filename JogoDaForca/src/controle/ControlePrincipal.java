@@ -24,7 +24,7 @@ public class ControlePrincipal {
     }
     
     public void comecar() {
-        partidaAtual = new Partida("Programacao");
+        partidaAtual = new Partida("programacao");
         tela.mostrarPartida(partidaAtual);
         tela.setVisible(true);
     }
