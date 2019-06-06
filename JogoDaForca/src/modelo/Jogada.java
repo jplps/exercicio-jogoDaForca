@@ -30,6 +30,6 @@ public class Jogada {
         if(s == null)
             throw new IllegalArgumentException("O Segredo não pode ser nulo.");
         contexto.registrarLetra(letra);
-        return s.receber(letra);
+        return s.receberLetra(letra);
     }
 }
