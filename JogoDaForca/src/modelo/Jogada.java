@@ -18,19 +18,7 @@ public class Jogada {
         letra = l;
         validar();
     }
-    
-    /**
-     * Registra a letra no contexto de letras usadas e revela os espaços do segredo.
-     * @throws IllegalArgumentException se o Segredo for nulo.
-     * @param s Um segredo para aplicar a jogada.
-     * @return true caso algum espaço foi revelado.
-     */
-    public boolean jogar(Segredo s){
-        if(s == null)
-            throw new IllegalArgumentException("O Segredo não pode ser nulo.");
-        contexto.registrarLetra(letra);
-        return s.receberLetra(letra);
-    }
+
     
     /**
      * Verifica se a letra e o contexto são validos para a jogada.
