@@ -26,6 +26,8 @@ public class TelaPrincipal extends JFrame {
         setSize(400, 400);
         setTitle("Jogo da Forca");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        
+        inicializarComponentes();
     }
 
     public void mostrarPartida(Partida partidaAtual) {

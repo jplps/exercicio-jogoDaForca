@@ -6,7 +6,6 @@
 package principal;
 
 import controle.ControlePrincipal;
-import modelo.Palavra;
 
 /**
  *
