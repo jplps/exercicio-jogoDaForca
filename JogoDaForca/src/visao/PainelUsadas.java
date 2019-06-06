@@ -1,6 +1,7 @@
 
 package visao;
 
+import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -13,8 +14,8 @@ public class PainelUsadas extends JPanel {
     
     public PainelUsadas() {
         letrasUsadas = new JLabel("labelhere");
-        letrasUsadas.setSize(300, 15);
-        letrasUsadas.setLocation(15, 15);
+        letrasUsadas.setLayout(new FlowLayout());
+        add(letrasUsadas);
     }
 
     

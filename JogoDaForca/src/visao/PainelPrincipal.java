@@ -5,6 +5,7 @@
  */
 package visao;
 
+import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import modelo.Partida;
 
@@ -16,10 +17,11 @@ public class PainelPrincipal extends JPanel {
     
     private JPanel pLetra;
     private JPanel pPartida;
-    private JPanel pSegredo;
+    private PainelSegredo pSegredo;
     private PainelUsadas pUsadas;
     
     public PainelPrincipal() {
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         iniciarPaineis();
         adicionarPaineis();
     }
@@ -27,7 +29,7 @@ public class PainelPrincipal extends JPanel {
     private void iniciarPaineis() {
         pLetra = new JPanel();
         pPartida = new JPanel();
-        pSegredo = new JPanel();
+        pSegredo = new PainelSegredo();
         pUsadas = new PainelUsadas();
     }
 
