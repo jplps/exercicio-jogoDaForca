@@ -6,6 +6,7 @@
 package modelo;
 
 import java.util.ArrayList;
+import modelo.interfaces.ObservadorSegredo;
 
 /**
  * Representa a palavra escondida do jogador em um jogo da forca.
@@ -15,6 +16,7 @@ public class Segredo {
 
     private final Palavra palavra;
     private final ArrayList<Espaco> espacos;
+    private ObservadorSegredo observador;
 
     /**
      * Constroi um objeto da classe Segredo a partir de uma String base.
@@ -72,5 +74,20 @@ public class Segredo {
         for (Integer indice : indices) {
             espacos.get(indice).revelar();
         }
+        if(observador != null)
+            observador.atualizar(this);
     }
+
+    @Override
+    public String toString() {
+        String s = "";
+        for(Espaco e : espacos)
+            s = " " + e.toString();
+        return s;
+    }
+    
+    public void registrarObservador(ObservadorSegredo obs){
+        observador = obs;
+    }
+    
 }
