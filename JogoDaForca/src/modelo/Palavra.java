@@ -21,7 +21,7 @@ public class Palavra {
      */
     public Palavra(String s) {
 
-        validar();
+        validar(s);
         letras = new ArrayList();
         criarLetras(s);
     }
@@ -41,8 +41,8 @@ public class Palavra {
      * Verifica se uma letra é valida.
      * @throws IllegalArgumentException se a palavra for nula ou vazia.
      */
-    private void validar() {
-        if (letras == null || letras.isEmpty()) {
+    private void validar(String s) {
+        if (s == null || s.isEmpty()) {
             throw new IllegalArgumentException("A palavra não é valida!");
         }
     }
