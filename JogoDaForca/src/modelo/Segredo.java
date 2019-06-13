@@ -10,6 +10,7 @@ import modelo.interfaces.ObservadorSegredo;
 
 /**
  * Representa a palavra escondida do jogador em um jogo da forca.
+ *
  * @author Natalia e Carlos
  */
 public class Segredo {
@@ -20,6 +21,7 @@ public class Segredo {
 
     /**
      * Constroi um objeto da classe Segredo a partir de uma String base.
+     *
      * @param s A string que será usada para criar a palavra.
      */
     public Segredo(String s) {
@@ -29,7 +31,9 @@ public class Segredo {
     }
 
     /**
-     * Verifica se a palavra tem a letra l e revela seus espaços onde essa letra existe.
+     * Verifica se a palavra tem a letra l e revela seus espaços onde essa letra
+     * existe.
+     *
      * @throws IllegalArgumentException se a letra for nula.
      * @param l Uma letra.
      * @return true se algum espaço foi revelado.
@@ -42,40 +46,48 @@ public class Segredo {
         revelarEspacos(indices);
         return !indices.isEmpty();
     }
-   
+
     /**
      * Verifica se o jogo já terminou.
+     *
      * @return False se pelo menos um dos espaços aindo não foi revelado.
      */
-    public boolean vitoria(){
-        for(Espaco e : espacos)
-            if(!e.revelado())
+    public boolean vitoria() {
+        for (Espaco e : espacos) {
+            if (!e.revelado()) {
                 return false;
+            }
+        }
         return true;
     }
-    
+
     /**
      * Registra um observador de segredo
-     * @param obs - um ObservadorSegredo
+     *
+     * @param obs um ObservadorSegredo
      */
-    public void registrarObservador(ObservadorSegredo obs){
+    public void registrarObservador(ObservadorSegredo obs) {
         observador = obs;
     }
-    
+
     /**
      * Sobrescreve o método para retornar "_" ou "char"
-     * @return 
+     *
+     * @return
      */
     @Override
     public String toString() {
         String s = "";
-        for(Espaco e : espacos)
+        for (Espaco e : espacos) {
             s += " " + e.toString();
+        }
         return s;
     }
 
     /**
-     * Cria um espaço para cada caracter da palavra e os adiciona na lista de espaços do segredo
+     * Cria um espaço para cada caracter da palavra e os adiciona na lista de
+     * espaços do segredo
+     *
      * @param s Uma palavra representada como uma String.
      */
     private void criarEspacos(String s) {
@@ -84,16 +96,18 @@ public class Segredo {
             espacos.add(new Espaco(c));
         }
     }
-    
+
     /**
      * Revela os espaços segundo os indices.
+     *
      * @param indices Os indices que serão revelados.
      */
     private void revelarEspacos(ArrayList<Integer> indices) {
         for (Integer indice : indices) {
             espacos.get(indice).revelar();
         }
-        if(observador != null)
+        if (observador != null) {
             observador.atualizar(this);
+        }
     }
 }

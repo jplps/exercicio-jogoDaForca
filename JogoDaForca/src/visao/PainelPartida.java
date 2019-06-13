@@ -5,11 +5,14 @@
  */
 package visao;
 
+import modelo.Tentativas;
+import modelo.interfaces.ObservadorTentativa;
+
 /**
  *
  * @author aluno
  */
-public class PainelPartida extends javax.swing.JPanel {
+public class PainelPartida extends javax.swing.JPanel implements ObservadorTentativa {
 
     /**
      * Creates new form PainelPartida
@@ -17,7 +20,19 @@ public class PainelPartida extends javax.swing.JPanel {
     public PainelPartida() {
         initComponents();
     }
+    
+    public void setTentativas(Tentativas t){
+        if(t == null)
+            throw new IllegalArgumentException("A tentativa não pode ser nula");
+        t.registrarObservador(this);
+        atualizar(t);
+    }
 
+    @Override
+    public void atualizar(Tentativas t) {
+        ntentativas.setText("" + t.atual());
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,4 +80,6 @@ public class PainelPartida extends javax.swing.JPanel {
     private javax.swing.JLabel ntentativas;
     private javax.swing.JLabel tentativas;
     // End of variables declaration//GEN-END:variables
+
+    
 }

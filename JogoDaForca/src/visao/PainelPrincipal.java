@@ -5,7 +5,6 @@
  */
 package visao;
 
-
 import javax.swing.BoxLayout;
 import controle.CriadorJogadas;
 import javax.swing.JPanel;
@@ -17,13 +16,15 @@ import modelo.Segredo;
  * @author João, Carlos e Leandro
  */
 public class PainelPrincipal extends JPanel {
+    
     private PainelLetra pLetra;
     private PainelPartida pPartida;
     private PainelSegredo pSegredo;
     private PainelUsadas pUsadas;
-    
+
     /**
      * Construtói o painel principal
+     *
      * @param cj Criador de jogadas implementado pelo controle de letras
      */
     public PainelPrincipal(CriadorJogadas cj) {
@@ -34,7 +35,8 @@ public class PainelPrincipal extends JPanel {
 
     /**
      * Inicia painéis do jogo
-     * @param cj 
+     *
+     * @param cj
      */
     private void iniciarPaineis(CriadorJogadas cj) {
         pLetra = new PainelLetra();
@@ -57,11 +59,13 @@ public class PainelPrincipal extends JPanel {
 
     /**
      * Registra observadores do segredo e o Segredo na partida atual.
+     *
      * @param partidaAtual - Partida sendo jogada
      */
     void mostrarPartida(Partida partidaAtual) {
         partidaAtual.letrasusadas.registrarObservador(pUsadas);
         partidaAtual.segredo.registrarObservador(pSegredo);
         pSegredo.setSegredo(partidaAtual.segredo);
+        pPartida.setTentativas(partidaAtual.tentativas);
     }
 }
