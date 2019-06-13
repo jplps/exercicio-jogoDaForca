@@ -17,15 +17,19 @@ public class ControlePrincipal {
     private final TelaPrincipal tela;
     
     private Partida partidaAtual;
+    private final ControleLetra cl;
     
     
     public ControlePrincipal() {
-        tela = new TelaPrincipal();
+        cl = new ControleLetra();
+        tela = new TelaPrincipal(cl);        
     }
     
     public void comecar() {
-        partidaAtual = new Partida("programacao");
+        partidaAtual = new Partida("Programacao");
+        cl.novoJogo(partidaAtual);
         tela.mostrarPartida(partidaAtual);
         tela.setVisible(true);
     }
+    
 }

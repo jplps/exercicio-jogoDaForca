@@ -5,6 +5,7 @@
  */
 package visao;
 
+import controle.CriadorJogadas;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import modelo.Partida;
@@ -17,17 +18,18 @@ public class TelaPrincipal extends JFrame {
     
     private PainelPrincipal painel;
     
-    private void inicializarComponentes() {
-        painel = new PainelPrincipal();
+    private void inicializarComponentes(CriadorJogadas cj) {
+        painel = new PainelPrincipal(cj);
         add(painel);
     }
     
-    public TelaPrincipal() {
+    public TelaPrincipal(CriadorJogadas cj) {
         setSize(400, 400);
         setTitle("Jogo da Forca");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         
-        inicializarComponentes();
+        inicializarComponentes(cj);
+        
     }
 
     public void mostrarPartida(Partida partidaAtual) {
