@@ -5,6 +5,7 @@
  */
 package visao;
 
+import controle.CriadorPartidas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.Tentativas;
@@ -15,12 +16,17 @@ import modelo.interfaces.ObservadorTentativa;
  * @author aluno
  */
 public class PainelPartida extends javax.swing.JPanel implements ObservadorTentativa, ActionListener {
-
+    
+    private CriadorPartidas criador;
     /**
      * Creates new form PainelPartida
      */
     public PainelPartida() {
         initComponents();
+    }
+    
+    public void setCriador(CriadorPartidas cp) {
+        criador = cp;
     }
     
     public void setTentativas(Tentativas t){
@@ -37,7 +43,7 @@ public class PainelPartida extends javax.swing.JPanel implements ObservadorTenta
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        criador.novaPartida();
     }
     
     /**

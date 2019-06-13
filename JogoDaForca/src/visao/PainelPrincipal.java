@@ -7,6 +7,7 @@ package visao;
 
 import javax.swing.BoxLayout;
 import controle.CriadorJogadas;
+import controle.CriadorPartidas;
 import javax.swing.JPanel;
 import modelo.Partida;
 import modelo.Segredo;
@@ -27,9 +28,9 @@ public class PainelPrincipal extends JPanel {
      *
      * @param cj Criador de jogadas implementado pelo controle de letras
      */
-    public PainelPrincipal(CriadorJogadas cj) {
+    public PainelPrincipal(CriadorJogadas cj, CriadorPartidas cp) {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        iniciarPaineis(cj);
+        iniciarPaineis(cj, cp);
         adicionarPaineis();
     }
 
@@ -38,13 +39,15 @@ public class PainelPrincipal extends JPanel {
      *
      * @param cj
      */
-    private void iniciarPaineis(CriadorJogadas cj) {
+    private void iniciarPaineis(CriadorJogadas cj, CriadorPartidas cp) {
         pLetra = new PainelLetra();
         pPartida = new PainelPartida();
         pSegredo = new PainelSegredo();
         pUsadas = new PainelUsadas();
         
         pLetra.novaPartida(cj);
+        pPartida.setCriador(cp);
+        
     }
 
     /**

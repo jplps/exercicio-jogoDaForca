@@ -20,7 +20,7 @@ public class ControlePrincipal implements CriadorPartidas {
 
     public ControlePrincipal() {
         cl = new ControleLetra();
-        tela = new TelaPrincipal(cl);
+        tela = new TelaPrincipal(cl, this);
     }
 
     /**
