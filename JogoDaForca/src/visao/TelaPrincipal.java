@@ -7,8 +7,10 @@ package visao;
 
 import controle.CriadorJogadas;
 import controle.CriadorPartidas;
+import controle.IControle;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import javax.swing.JOptionPane;
 import modelo.Partida;
 
 /**
@@ -19,22 +21,42 @@ public class TelaPrincipal extends JFrame {
     
     private PainelPrincipal painel;
     
-    private void inicializarComponentes(CriadorJogadas cj, CriadorPartidas cp) {
-        painel = new PainelPrincipal(cj, cp);
+    private void inicializarComponentes(IControle controle) {
+        painel = new PainelPrincipal(controle);
         add(painel);
     }
     
-    public TelaPrincipal(CriadorJogadas cj, CriadorPartidas cp) {
+    public TelaPrincipal(IControle controle) {
         setSize(400, 400);
         setTitle("Jogo da Forca");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         
-        inicializarComponentes(cj, cp);
+        inicializarComponentes(controle);
         
     }
 
     public void mostrarPartida(Partida partidaAtual) {
         painel.mostrarPartida(partidaAtual);
+    }
+    
+    public void mostrarEstado(Partida p) {
+        switch(p.estado()) {
+            case DERROTA:
+                avisarDerrota();
+                break;
+            case VITORIA:
+                avisarVitoria();
+                break;
+        }
+    }
+    
+    private void avisarDerrota() {
+        JOptionPane.showMessageDialog(this, "Você Perdeu");
+        
+    }
+    
+    private void avisarVitoria() {
+        JOptionPane.showMessageDialog(this, "Você Ganhou");
     }
     
 }

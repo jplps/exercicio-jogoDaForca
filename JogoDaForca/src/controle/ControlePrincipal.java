@@ -12,15 +12,13 @@ import visao.TelaPrincipal;
  *
  * @author João, Carlos e Leandro
  */
-public class ControlePrincipal implements CriadorPartidas {
+public class ControlePrincipal implements IControle {
 
     private final TelaPrincipal tela;
     private Partida partidaAtual;
-    private final ControleLetra cl;
 
     public ControlePrincipal() {
-        cl = new ControleLetra();
-        tela = new TelaPrincipal(cl, this);
+        tela = new TelaPrincipal(this);
     }
 
     /**
@@ -35,7 +33,12 @@ public class ControlePrincipal implements CriadorPartidas {
     @Override
     public void novaPartida() {
         partidaAtual = new Partida("acao");
-        cl.novoJogo(partidaAtual);
         tela.mostrarPartida(partidaAtual);
+    }
+
+    @Override
+    public void receberLetra(char c) {
+        partidaAtual.jogar(c);
+        tela.mostrarEstado(partidaAtual);
     }
 }

@@ -8,6 +8,7 @@ package visao;
 import javax.swing.BoxLayout;
 import controle.CriadorJogadas;
 import controle.CriadorPartidas;
+import controle.IControle;
 import javax.swing.JPanel;
 import modelo.Partida;
 import modelo.Segredo;
@@ -26,11 +27,11 @@ public class PainelPrincipal extends JPanel {
     /**
      * Construtói o painel principal
      *
-     * @param cj Criador de jogadas implementado pelo controle de letras
+     * @param controle Criador de jogadas implementado pelo controle de letras
      */
-    public PainelPrincipal(CriadorJogadas cj, CriadorPartidas cp) {
+    public PainelPrincipal(IControle controle) {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        iniciarPaineis(cj, cp);
+        iniciarPaineis(controle);
         adicionarPaineis();
     }
 
@@ -39,14 +40,14 @@ public class PainelPrincipal extends JPanel {
      *
      * @param cj
      */
-    private void iniciarPaineis(CriadorJogadas cj, CriadorPartidas cp) {
+    private void iniciarPaineis(IControle controle) {
         pLetra = new PainelLetra();
         pPartida = new PainelPartida();
         pSegredo = new PainelSegredo();
         pUsadas = new PainelUsadas();
         
-        pLetra.novaPartida(cj);
-        pPartida.setCriador(cp);
+        pLetra.novaPartida(controle);
+        pPartida.setCriador(controle);
         
     }
 
@@ -66,8 +67,7 @@ public class PainelPrincipal extends JPanel {
      * @param partidaAtual - Partida sendo jogada
      */
     void mostrarPartida(Partida partidaAtual) {
-        partidaAtual.letrasusadas.registrarObservador(pUsadas);
-        partidaAtual.segredo.registrarObservador(pSegredo);
+        pUsadas.setLetrasUsadas(partidaAtual.letrasusadas);
         pSegredo.setSegredo(partidaAtual.segredo);
         pPartida.setTentativas(partidaAtual.tentativas);
     }

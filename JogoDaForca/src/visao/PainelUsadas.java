@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import modelo.Letra;
+import modelo.LetrasUsadas;
 import modelo.interfaces.ObservadorLetrasUsadas;
 
 /**
@@ -20,6 +21,11 @@ public class PainelUsadas extends JPanel implements ObservadorLetrasUsadas {
         add(letrasUsadas);
     }
 
+    public void setLetrasUsadas(LetrasUsadas l) {
+        l.registrarObservador(this);
+        letrasUsadas.setText("");
+    }
+    
     @Override
     public void novaLetra(Letra l) {
         letrasUsadas.setText(letrasUsadas.getText() + " " + l);

@@ -23,6 +23,7 @@ public class PainelPartida extends javax.swing.JPanel implements ObservadorTenta
      */
     public PainelPartida() {
         initComponents();
+        novaPalavra.addActionListener(this);
     }
     
     public void setCriador(CriadorPartidas cp) {
