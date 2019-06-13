@@ -5,6 +5,8 @@
  */
 package visao;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import modelo.Tentativas;
 import modelo.interfaces.ObservadorTentativa;
 
@@ -12,7 +14,7 @@ import modelo.interfaces.ObservadorTentativa;
  *
  * @author aluno
  */
-public class PainelPartida extends javax.swing.JPanel implements ObservadorTentativa {
+public class PainelPartida extends javax.swing.JPanel implements ObservadorTentativa, ActionListener {
 
     /**
      * Creates new form PainelPartida
@@ -31,6 +33,11 @@ public class PainelPartida extends javax.swing.JPanel implements ObservadorTenta
     @Override
     public void atualizar(Tentativas t) {
         ntentativas.setText("" + t.atual());
+    }
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     /**
@@ -73,7 +80,6 @@ public class PainelPartida extends javax.swing.JPanel implements ObservadorTenta
                 .addComponent(ntentativas))
         );
     }// </editor-fold>//GEN-END:initComponents
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton novaPalavra;

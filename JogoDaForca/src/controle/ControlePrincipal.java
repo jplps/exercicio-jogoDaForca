@@ -10,26 +10,32 @@ import visao.TelaPrincipal;
 
 /**
  *
- * @author aluno
+ * @author João, Carlos e Leandro
  */
-public class ControlePrincipal {
+public class ControlePrincipal implements CriadorPartidas {
+
     private final TelaPrincipal tela;
     private Partida partidaAtual;
     private final ControleLetra cl;
-    
+
     public ControlePrincipal() {
         cl = new ControleLetra();
-        tela = new TelaPrincipal(cl);        
+        tela = new TelaPrincipal(cl);
     }
-    
+
     /**
-     * Começa de fato uma partida, atribuindo uma palavra à partida e uma 
+     * Começa de fato uma partida, atribuindo uma palavra à partida e uma
      * partida à um jogo.
      */
     public void comecar() {
+        novaPartida();
+        tela.setVisible(true);
+    }
+
+    @Override
+    public void novaPartida() {
         partidaAtual = new Partida("acao");
         cl.novoJogo(partidaAtual);
         tela.mostrarPartida(partidaAtual);
-        tela.setVisible(true);
-    }   
+    }
 }
