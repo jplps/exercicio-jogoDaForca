@@ -13,23 +13,23 @@ import visao.TelaPrincipal;
  * @author aluno
  */
 public class ControlePrincipal {
-    
     private final TelaPrincipal tela;
-    
     private Partida partidaAtual;
     private final ControleLetra cl;
-    
     
     public ControlePrincipal() {
         cl = new ControleLetra();
         tela = new TelaPrincipal(cl);        
     }
     
+    /**
+     * Começa de fato uma partida, atribuindo uma palavra à partida e uma 
+     * partida à um jogo.
+     */
     public void comecar() {
-        partidaAtual = new Partida("Programacao");
+        partidaAtual = new Partida("acao");
         cl.novoJogo(partidaAtual);
         tela.mostrarPartida(partidaAtual);
         tela.setVisible(true);
-    }
-    
+    }   
 }

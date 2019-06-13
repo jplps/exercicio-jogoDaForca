@@ -24,7 +24,6 @@ public class Segredo {
      */
     public Segredo(String s) {
         espacos = new ArrayList();
-
         palavra = new Palavra(s);
         criarEspacos(s);
     }
@@ -54,6 +53,26 @@ public class Segredo {
                 return false;
         return true;
     }
+    
+    /**
+     * Registra um observador de segredo
+     * @param obs - um ObservadorSegredo
+     */
+    public void registrarObservador(ObservadorSegredo obs){
+        observador = obs;
+    }
+    
+    /**
+     * Sobrescreve o método para retornar "_" ou "char"
+     * @return 
+     */
+    @Override
+    public String toString() {
+        String s = "";
+        for(Espaco e : espacos)
+            s += " " + e.toString();
+        return s;
+    }
 
     /**
      * Cria um espaço para cada caracter da palavra e os adiciona na lista de espaços do segredo
@@ -77,17 +96,4 @@ public class Segredo {
         if(observador != null)
             observador.atualizar(this);
     }
-
-    @Override
-    public String toString() {
-        String s = "";
-        for(Espaco e : espacos)
-            s = " " + e.toString();
-        return s;
-    }
-    
-    public void registrarObservador(ObservadorSegredo obs){
-        observador = obs;
-    }
-    
 }
